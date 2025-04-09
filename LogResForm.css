@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
+    overflow-y: hidden;
 	box-sizing: border-box;
 }
 
@@ -14,6 +15,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
+    overflow: hidden;
 }
 
 h1 {
@@ -123,6 +125,7 @@ input {
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
+    
 }
 
 .container.right-panel-active .sign-up-container {
@@ -162,7 +165,7 @@ input {
 .overlay {
 	background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #f3cf5b, #ff8a05);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -226,27 +229,3 @@ input {
 	width: 40px;
 }
 
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-}
