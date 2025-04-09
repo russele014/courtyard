@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="LogResForm.css">
 </head>
 <body>
+<div class="center-wrapper">
 <h2>The Couryard of Maia Alta</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
@@ -43,7 +44,8 @@
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
+				<p>To keep connected with us please <break>
+				login with your personal info</p>
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
@@ -53,6 +55,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 <script>

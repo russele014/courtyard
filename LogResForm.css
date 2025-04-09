@@ -14,9 +14,10 @@ body {
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	margin: -20px 0 50px;
-    overflow: hidden;
+	margin: 0;
+	overflow: hidden;
 }
+
 
 h1 {
 	font-weight: bold;
@@ -24,7 +25,10 @@ h1 {
 }
 
 h2 {
-	text-align: center;
+    text-align: center;
+	font-size: 50px;
+	margin: 0 0 10px 0; /* space below the heading */
+	z-index: 10;
 }
 
 p {
@@ -91,17 +95,29 @@ input {
 	width: 100%;
 }
 
+.center-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
 .container {
+    position: relative;
+    overflow: hidden;
+    left: auto; /* reset left */
+	top: auto; /* reset top */
+	transform: none;
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+		0 10px 10px rgba(0,0,0,0.22);
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
 }
+
 
 .form-container {
 	position: absolute;
@@ -198,7 +214,7 @@ input {
 }
 
 .overlay-left {
-	transform: translateX(-20%);
+	transform: translateX(-00%);
 }
 
 .container.right-panel-active .overlay-left {
@@ -211,7 +227,7 @@ input {
 }
 
 .container.right-panel-active .overlay-right {
-	transform: translateX(20%);
+	transform: translateX(0%);
 }
 
 .social-container {
