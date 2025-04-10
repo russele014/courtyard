@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login and Registration</title>
 	<link rel="stylesheet" href="LogResForm.css">
 	<link rel="stylesheet" href="navbar.css">
 </head>
@@ -69,18 +69,25 @@
 </div>
 </div>
 
+
 <script>
     const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+    const body = document.body; // Reference to the body for background image changes
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+        // Change background to "gate.jpg" for registration
+        body.style.backgroundImage = "url('gate.jpg')";
+    });
 
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+        // Change background to "office.jpg" for login
+        body.style.backgroundImage = "url('office.jpg')";
+    });
+
 </script>
 </body>
 </html>
