@@ -12,10 +12,13 @@
 <nav class="navbar">
   <div class="navbar-left">The Courtyard of Maia Alta</div>
   <ul class="navbar-right">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Profile</a></li>
-    <li><a href="#">Settings</a></li>
-    <li><button class="logout-btn">Logout</button></li>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="Officers.php">Officers</a></li>
+    <li><a href="Gallery.php">Gallery </a></li>
+    <li><a href="UserDash.php">SOA</a></li>
+    <li><a href="Events.php">Events</a></li>
+    <li><a href="News.php">News</a></li>
+    <li><a href="Login.php" class="logout-btn">Login</a></li>
   </ul>
 </nav>
 <div class="text-title-con">
