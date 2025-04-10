@@ -1,4 +1,4 @@
-/* Navbar Styles */ /* Navbar Styles */ /* Navbar Styles */ /* Navbar Styles */ /* Navbar Styles */ 
+/* Navbar Styles */ 
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -52,120 +52,287 @@
     background-color: #a72b38;
 }
 
-
 .container {
     max-width: 90%;
     margin: 40px auto;
     text-align: center;
-  }
+}
 
-/*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ 
+/*Tables*/
 h1 {
-text-align: center;
-margin-top: 0;
+    text-align: center;
+    margin-top: 0;
 }
 
 .header-section {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: #fff9c4;
-padding: 10px 15px;
-margin-bottom: 15px;
-border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff9c4;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }
 
 .add-button {
-background-color: #a7ff85;
-border: none;
-padding: 8px 15px;
-border-radius: 15px;
-cursor: pointer;
-font-weight: bold;
+    background-color: #a7ff85;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .homeowner-title {
-font-weight: bold;
-color: #000;
+    font-weight: bold;
+    color: #000;
 }
 
 /* Table Styles */
 table {
-width: 100%;
-border-collapse: collapse;
-background-color: #ffffff;
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-border-radius: 8px;
-overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th, td {
-border: 1px solid #ddd;
-padding: 10px;
-text-align: left;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
 }
 
 th {
-background-color: #797979;
-font-weight: bold;
-color: #fff;
+    background-color: #797979;
+    font-weight: bold;
+    color: #fff;
 }
 
 /* Zebra striping */
 tbody tr:nth-child(odd) {
-background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
 tbody tr:nth-child(even) {
-background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 /* Hover effect */
 tbody tr:hover {
-background-color: #ffe082 !important;
-transition: background-color 0.3s ease;
+    background-color: #ffe082 !important;
+    transition: background-color 0.3s ease;
 }
 
 /* Action buttons */
 .action-buttons {
-display: flex;
-flex-direction: column;
-gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.view-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: center;
 }
 
 .update-btn {
-background-color: #ffeb3b;
-border: none;
-padding: 5px;
-cursor: pointer;
-border-radius: 3px;
-text-align: center;
+    background-color: #ffeb3b;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: center;
 }
 
 .archive-btn {
-background-color: #66cfff;
-border: none;
-padding: 5px;
-cursor: pointer;
-border-radius: 3px;
-text-align: center;
+    background-color: #66cfff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: center;
 }
 
 /* Hover effects for buttons */
 .add-button:hover {
-background-color: #8cff57;
-transform: scale(1.05);
-transition: all 0.2s ease;
+    background-color: #8cff57;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+    background-color: #3d8b40;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
 }
 
 .update-btn:hover {
-background-color: #ffd600;
-transform: scale(1.05);
-transition: all 0.2s ease;
+    background-color: #ffd600;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
 }
 
 .archive-btn:hover {
-background-color: #00b0ff;
-transform: scale(1.05);
-transition: all 0.2s ease;
+    background-color: #00b0ff;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
 }
+
+/* Status labels */
+.status-paid {
+    background-color: #a7ff85;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.status-unpaid {
+    background-color: #ffb3b3;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+
+/* Modal Styles */
+       .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .form-submit {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .form-submit:hover {
+        background-color: #45a049;
+    }
+    
+    /* View Modal */
+    .view-modal .modal-content {
+        width: 70%;
+    }
+    
+    .tenant-details {
+        margin-top: 20px;
+    }
+    
+    .tenant-details h3 {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 5px;
+    }
+    
+    .detail-row {
+        display: flex;
+        margin-bottom: 10px;
+    }
+    
+    .detail-label {
+        width: 30%;
+        font-weight: bold;
+    }
+    
+    .detail-value {
+        width: 70%;
+    }
+    
+    /* Status styles */
+    .status-paid {
+        background-color: #a7ff85;
+        padding: 3px 8px;
+        border-radius: 12px;
+        display: inline-block;
+    }
+    
+    .status-unpaid {
+        background-color: #ffb3b3;
+        padding: 3px 8px;
+        border-radius: 12px;
+        display: inline-block;
+    }
+
+    /* Alert messages */
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    @keyframes fadeOut {
+        from {opacity: 1;}
+        to {opacity: 0;}
+    }
+    
+    .fade-out {
+        animation: fadeOut 1s forwards;
+    }
