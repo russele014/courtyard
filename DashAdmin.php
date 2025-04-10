@@ -13,7 +13,7 @@
   <div class="navbar-left">The Courtyard of Maia Alta</div>
   <ul class="navbar-right">
     <li><a href="index.php">Home</a></li>
-    <li><a href="Officers.php">Officers</a></li>
+    <li><a href="DashAdmin.php">Admin</a></li>
     <li><a href="Gallery.php">Gallery </a></li>
     <li><a href="UserDash.php">SOA</a></li>
     <li><a href="Events.php">Events</a></li>
