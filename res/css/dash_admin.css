@@ -1,0 +1,171 @@
+/* Navbar Styles */ /* Navbar Styles */ /* Navbar Styles */ /* Navbar Styles */ /* Navbar Styles */ 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #a72b38;
+}
+
+
+.container {
+    max-width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+/*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ 
+h1 {
+text-align: center;
+margin-top: 0;
+}
+
+.header-section {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #fff9c4;
+padding: 10px 15px;
+margin-bottom: 15px;
+border-radius: 5px;
+}
+
+.add-button {
+background-color: #a7ff85;
+border: none;
+padding: 8px 15px;
+border-radius: 15px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.homeowner-title {
+font-weight: bold;
+color: #000;
+}
+
+/* Table Styles */
+table {
+width: 100%;
+border-collapse: collapse;
+background-color: #ffffff;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+border-radius: 8px;
+overflow: hidden;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 10px;
+text-align: left;
+}
+
+th {
+background-color: #797979;
+font-weight: bold;
+color: #fff;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(odd) {
+background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+background-color: #ffffff;
+}
+
+/* Hover effect */
+tbody tr:hover {
+background-color: #ffe082 !important;
+transition: background-color 0.3s ease;
+}
+
+/* Action buttons */
+.action-buttons {
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.update-btn {
+background-color: #ffeb3b;
+border: none;
+padding: 5px;
+cursor: pointer;
+border-radius: 3px;
+text-align: center;
+}
+
+.archive-btn {
+background-color: #66cfff;
+border: none;
+padding: 5px;
+cursor: pointer;
+border-radius: 3px;
+text-align: center;
+}
+
+/* Hover effects for buttons */
+.add-button:hover {
+background-color: #8cff57;
+transform: scale(1.05);
+transition: all 0.2s ease;
+}
+
+.update-btn:hover {
+background-color: #ffd600;
+transform: scale(1.05);
+transition: all 0.2s ease;
+}
+
+.archive-btn:hover {
+background-color: #00b0ff;
+transform: scale(1.05);
+transition: all 0.2s ease;
+}
