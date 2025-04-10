@@ -39,7 +39,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Tenant</th>
+                    <th>Tenant</t>
                     <th>Lot No.</th>
                     <th>Bill</th>
                     <th>Status<br>(paid/unpaid)</th>

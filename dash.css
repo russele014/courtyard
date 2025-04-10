@@ -60,8 +60,6 @@
       }
 
 /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ /*Tables*/ 
-
-
 h1 {
     text-align: center;
     margin-top: 0;
@@ -91,10 +89,14 @@ h1 {
     color: #000;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff9c4;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th, td {
@@ -104,15 +106,27 @@ th, td {
 }
 
 th {
-    background-color: #fff9c4;
+    background-color: #797979;
     font-weight: bold;
+    color: #fff;
 }
 
-tr:hover {
-    background-color: #ffe082;
+/* Zebra striping */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hover effect */
+tbody tr:hover {
+    background-color: #ffe082 !important;
     transition: background-color 0.3s ease;
 }
 
+/* Action buttons */
 .action-buttons {
     display: flex;
     flex-direction: column;
@@ -155,6 +169,5 @@ tr:hover {
     transform: scale(1.05);
     transition: all 0.2s ease;
 }
-
 
 
