@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('Home_bg.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; 
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Title Section */
+.text-title-con {
+    margin-top: 28%;
+    margin-left: 100px;
+    color: white;
+    font-size: 90px;
+    text-shadow: 2px 2px 4px #000000;
+    letter-spacing: 5px;
+    word-spacing: 5px;
+}
+
+.text-title-con-big {
+    font-size: 100px;
+    margin-top: -150px; /* Makes it closer */
+    margin-bottom: 0;
+}
+
+/* New Container Below the Text */
+.container {
+    width: 100%; /* Full width */
+    height: auto; /* Height adjusts based on content */
+    background-color: rgba(255, 255, 255, 0.644); /* Optional background color */
+    text-align: center; /* Optional, to center any content inside */
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Flexbox Layout for Three Columns */
+.column-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.column {
+    flex: 1; /* Makes each column take equal width */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+}
+
+/* Title inside each column */
+.column h2 {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Text inside each column */
+.column p {
+    font-size: 16px;
+    color: #555;
+}

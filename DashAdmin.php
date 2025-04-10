@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="dash.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="dash.css">
 </head>
 <body>
-
-<!-- Navigation Bar -->
- <!-- Navigation Bar -->
 <nav class="navbar">
-    <div class="logo">Admin Dashboard</div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
-    </ul>
-    <button class="logout-btn">Logout</button>
+  <div class="navbar-left">The Courtyard of Maia Alta</div>
+  <ul class="navbar-right">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Settings</a></li>
+    <li><button class="logout-btn">Logout</button></li>
+  </ul>
 </nav>
 
 

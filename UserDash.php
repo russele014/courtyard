@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOA Account History</title>
     <link rel="stylesheet" href="UserDash.css">
+    <link rel="stylesheet" href="navbar.css">
 
 </head>
 <body>
+<nav class="navbar">
+  <div class="navbar-left">The Courtyard of Maia Alta</div>
+  <ul class="navbar-right">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Settings</a></li>
+    <li><button class="logout-btn">Logout</button></li>
+  </ul>
+</nav>
+
+
     <div class="container">
         <div class="header">
             <h1>HOME OWNER'S ASSOCIATION OF MAIA ALTA, INC.</h1>
