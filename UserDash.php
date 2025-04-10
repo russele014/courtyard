@@ -18,7 +18,7 @@
             <div class="left-info">
                 <div class="owner-name">NAME OF HOMEOWNER</div>
                 <div class="property-info"><Address></Address></div>
-                <div class="property-info">Lot Area : ??update</div>
+                <div class="property-info">Lot Area : ??</div>
             </div>
             <div class="right-info">
                 <div class="total-amount">Total Amount Due: <span class="php-currency">PhP</span> <span class="highlight-cell" id="total-due"></span></div>
