@@ -8,6 +8,12 @@
 	<link rel="stylesheet" href="navbar.css">
 </head>
 <body>
+
+<div class="bg-wrapper">
+        <!-- Background layers -->
+        <div id="bg1" class="bg-layer" style="background-image: url('office.jpg'); opacity: 1;"></div>
+        <div id="bg2" class="bg-layer" style="background-image: url('gate.jpg'); opacity: 0;"></div>
+    </div>
 <nav class="navbar">
   <div class="navbar-left">The Courtyard of Maia Alta</div>
   <ul class="navbar-right">
@@ -71,23 +77,25 @@
 
 
 <script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-    const body = document.body; // Reference to the body for background image changes
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+        const bg1 = document.getElementById('bg1');
+        const bg2 = document.getElementById('bg2');
 
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-        // Change background to "gate.jpg" for registration
-        body.style.backgroundImage = "url('gate.jpg')";
-    });
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+            // Fade out the current background and fade in the next one
+            bg1.style.opacity = 0;
+            bg2.style.opacity = 1;
+        });
 
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-        // Change background to "office.jpg" for login
-        body.style.backgroundImage = "url('office.jpg')";
-    });
-
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+            // Fade out the current background and fade in the next one
+            bg1.style.opacity = 1;
+            bg2.style.opacity = 0;
+        });
 </script>
 </body>
 </html>

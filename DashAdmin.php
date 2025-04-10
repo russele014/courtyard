@@ -17,8 +17,7 @@
     <li><a href="#">Settings</a></li>
     <li><button class="logout-btn">Logout</button></li>
   </ul>
-</nav>
-
+</nav>  
 
 <div class="container">
   <h2>Tenant Information</h2>

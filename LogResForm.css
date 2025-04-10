@@ -16,6 +16,14 @@ body {
 	height: 100vh;
 	margin: 0;
 	overflow: hidden;
+	background-image: url('daan.jpg'); /* Default background */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: background-image 0.6s ease-in-out; /* Smooth transition for background change */
+
+
+
 }
 
 
@@ -103,20 +111,38 @@ input {
 }
 
 
-.container {
-    position: relative;
-    overflow: hidden;
-    left: auto; /* reset left */
-	top: auto; /* reset top */
-	transform: none;
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-		0 10px 10px rgba(0,0,0,0.22);
-	width: 768px;
-	max-width: 100%;
-	min-height: 480px;
-}
+        /* Wrapper for background with two layers */
+        .bg-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Default body styles for the page */
+        .container {
+            position: relative;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                0 10px 10px rgba(0,0,0,0.22);
+            width: 768px;
+            max-width: 100%;
+            min-height: 480px;
+        }
 
 
 .form-container {
@@ -179,9 +205,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #f3cf5b, #ff8a05);
+	background: #ffffff00;
+	background: -webkit-linear-gradient(to right, #ff4b2b85, #ff416d69);
+	background: linear-gradient(to right, #f3d05b91, #ff8a0577);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
