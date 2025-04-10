@@ -16,9 +16,9 @@
         
         <div class="owner-info">
             <div class="left-info">
-                <div class="owner-name">CAJAYON, FREDERICK D.</div>
-                <div class="property-info">Blk 025, Lot 0003</div>
-                <div class="property-info">Lot Area : 88</div>
+                <div class="owner-name">NAME OF HOMEOWNER</div>
+                <div class="property-info"><Address></Address></div>
+                <div class="property-info">Lot Area : ??update</div>
             </div>
             <div class="right-info">
                 <div class="total-amount">Total Amount Due: <span class="php-currency">PhP</span> <span class="highlight-cell" id="total-due"></span></div>
