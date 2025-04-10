@@ -96,6 +96,7 @@ if (isset($_GET['view'])) {
 <html lang="en">
 <head>
     <link rel="stylesheet" href="res/css/dash_admin.css">
+    <link rel="stylesheet" href="res/css/dash_navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
@@ -104,14 +105,16 @@ if (isset($_GET['view'])) {
 
 <!-- Navigation Bar -->
 <nav class="navbar">
-    <div class="logo">Admin Dashboard</div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
-    </ul>
-    <button class="logout-btn">Logout</button>
+  <div class="navbar-left">The Courtyard of Maia Alta</div>
+  <ul class="navbar-right">
+    <li><a href="../index.php">Home</a></li>
+    <li><a href="dash_admin.php">Admin</a></li>
+    <li><a href="Gallery.php">Gallery </a></li>
+    <li><a href="UserDash.php">SOA</a></li>
+    <li><a href="Events.php">Events</a></li>
+    <li><a href="News.php">News</a></li>
+    <li><a href="../login_user.php" class="logout-btn">Login</a></li>
+  </ul>
 </nav>
 
 <div class="container">
@@ -307,7 +310,7 @@ if (isset($_GET['view'])) {
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Bill Amount:</div>
-                    <div class="detail-value">$<?php echo number_format($tenantDetails['bill'], 2); ?></div>
+                    <div class="detail-value">₱<?php echo number_format($tenantDetails['bill'], 2); ?></div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Payment Status:</div>

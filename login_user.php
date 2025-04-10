@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Registration</title>
     <link rel="stylesheet" href="res/css/login_user.css">
+    <link rel="stylesheet" href="res/css/navbar.css">
 </head>
 <body>
 <?php
@@ -55,13 +56,32 @@ if (isset($_POST['login'])) {
         // Redirect to dashboard or home page
         echo "<script>alert('Login successful! Welcome, " . $user['name'] . "!');</script>";
         // Uncomment the line below to redirect to another page after login
-        // header("Location: dashboard.php");
+         header("Location: user_dash.php");
     } else {
         echo "<script>alert('Invalid email or password!');</script>";
     }
 }
 ?>
 
+
+<div class="bg-wrapper">
+        <!-- Background layers -->
+        <div id="bg1" class="bg-layer" style="background-image: url('res/img/daan.jpg'); opacity: 1;"></div>
+        <div id="bg2" class="bg-layer" style="background-image: url('res/img/gate1.jpg'); opacity: 0;"></div>
+    </div>
+	<nav class="navbar">
+  <div class="navbar-left">The Courtyard of Maia Alta</div>
+  <ul class="navbar-right">
+    <li><a href="index.php">Home</a></li>
+    <li><a href="admin/dash_admin.php">Admin</a></li>
+    <li><a href="Gallery.php">Gallery </a></li>
+    <li><a href="UserDash.php">SOA</a></li>
+    <li><a href="Events.php">Events</a></li>
+    <li><a href="News.php">News</a></li>
+    <li><a href="login_user.php" class="logout-btn">Login</a></li>
+  </ul>
+</nav>
+<div class="center-wrapper">
 <div class="center-wrapper">
 <h2>The Couryard of Maia Alta</h2>
 <div class="container" id="container">
@@ -112,6 +132,6 @@ if (isset($_POST['login'])) {
     </div>
 </div>
 </div>
-<script src="res/javascript/login_user.js"></script> 
+<script src="res/js/login_user.js"></script> 
 </body>
 </html>
