@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="dash.css">
 </head>
+
+
 <body>
 <nav class="navbar">
   <div class="navbar-left">The Courtyard of Maia Alta</div>
