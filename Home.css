@@ -10,23 +10,16 @@ body {
     overflow-x: hidden;
 }
 
-@font-face {
-    font-family: 'BookmanURW';
-    src: url('fonts/BookmanURW.woff2') format('woff2'),
-         url('fonts/BookmanURW.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
+
 
 /* Title Section */
 .text-title-con {
-    margin-top: 28%;
+    margin-top: 22%;
     margin-left: 100px;
     color: white;
     font-size: 90px;
-    text-shadow: 2px 2px 4px #000000;
-    letter-spacing: 5px;
-    font-family: 'BookmanURW', serif;
+    letter-spacing: 3px;
+    font-family: 'times new roman';
     word-spacing: 5px;
 }
 
@@ -34,7 +27,9 @@ body {
     font-size: 100px;
     margin-top: -150px; /* Makes it closer */
     margin-bottom: 0;
-    font-family: 'BookmanURW', serif;
+    font-family: 'times new roman';
+    text-shadow: 10px 5px 6px #000000; 
+    font-style: italic; /* Ensuring the cursive/italic effect */
 }
 
 /* New Container Below the Text */
@@ -43,7 +38,7 @@ body {
     height: auto; /* Height adjusts based on content */
     background-color: rgba(255, 255, 255, 0.644); /* Optional background color */
     text-align: center; /* Optional, to center any content inside */
-    margin-top: 20px;
+    margin-top: 150px;
     padding: 20px;
 }
 

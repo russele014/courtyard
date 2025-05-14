@@ -8,10 +8,12 @@ body {
 
 .container {
     max-width: auto;
-    margin: 0 auto;
+    margin-top: 40px; /* or more depending on your navbar height */
+
     background-color: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
 }
 
 .header {

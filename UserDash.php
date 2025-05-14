@@ -90,7 +90,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td></td>   
                 </tr>
                 <tr>
                     <td class="month-column">Jan-25</td>
