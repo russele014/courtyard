@@ -45,8 +45,7 @@
         <div class="column">
             <h2>Mission</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                <br>Nulla convallis enim eu purus consequat, ac euismod nunc euismod.
+                 Effectively dir ect and administer the affairs of the Association in accordance with overall charter. To provide information regarding laws, rules and regulations which govern the community and its members to ensure consistency and
             </p>
         </div>
 
