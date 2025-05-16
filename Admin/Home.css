@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('Home_bg.jpg'); 
+  background-image: url('Courtard/Home_bg.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -376,41 +376,3 @@ margin-top: -100px;
   line-height: 1.5;
 }
 
-.event-section-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.event-section-header h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-
-.event-section.user-view {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start;
-}
-.event-image {
-  padding: 10px;
-  background-color: #fff;
-  border: 4px solid #ccc;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-}
-.event-image img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
-.event-description {
-  flex: 1;
-  font-size: 18px;
-  line-height: 1.6;
-  padding: 10px;
-}

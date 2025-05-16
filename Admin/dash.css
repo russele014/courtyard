@@ -167,3 +167,54 @@ tbody tr:hover {
     #downloadBtn:hover {
       background-color: #005e26;
     }
+
+
+    .report-cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border-radius: 8px;
+  color: white;
+  padding: 15px;
+  position: relative;
+  background-color: #2298F1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card .zmdi {
+  font-size: 28px;
+  opacity: 0.3;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.card .title {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+}
+
+.card .value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card .value button {
+  padding: 8px 16px;
+  background-color: #007e33;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card .value button:hover {
+  background-color: #005e26;
+}
+
+

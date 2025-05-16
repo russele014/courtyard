@@ -1,229 +1,357 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TestPage</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="navbar.css"/>
+  <link rel="stylesheet" href="TestCSS.css"/>
+  <style>
+    .dashboard-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 30px auto;
+      gap: 30px;
+      max-width: 90%;
+      flex-wrap: wrap;
+    }
 
-    <link rel="stylesheet" href="Home.css" />
-    <link rel="stylesheet" href="navbar.css" />
+    .chart-container {
+      flex: 1;
+      min-width: 300px;
+    }
 
-  
-  </head>
+    .report-form {
+      flex: 1;
+      min-width: 280px;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
 
-  <body>
-<>
+    .report-form h3 {
+      margin-bottom: 20px;
+    }
+
+    .report-form p {
+      margin: 10px 0;
+    }
+
+    #downloadBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007e33;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #downloadBtn:hover {
+      background-color: #005e26;
+    }
+
+    /* Modal Base */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+  </style>
+</head>
+<body>
+
   <nav class="navbar">
     <div class="navbar-left">The Courtyard of Maia Alta</div>
     <ul class="navbar-right">
       <li><a href="index.php">Home</a></li>
-      <li><a href="Gallery.php">Gallery </a></li>
+      <li><a href="DashAdmin.php">Admin</a></li>
+      <li><a href="Gallery.php">Gallery</a></li>
+      <li><a href="UserDash.php">SOA</a></li>
+      <li><a href="Events.php">Events</a></li>
       <li><a href="News.php">News</a></li>
       <li><a href="Login.php" class="logout-btn">Login</a></li>
     </ul>
   </nav>
 
-  <div class="text-title-con">
-    <p>A PLACE <br />YOU CAN CALL</p>
-    <div class="text-title-con-big">
-      <h1>HOME.</h1>
-    </div>
-  </div>
-
-  <div class="officers-intro">
-    <h2 class="officers-title">Meet the Officers</h2>
-    <p class="officers-description">
-      Behind every thriving community is a team of passionate individuals dedicated to its growth.
-      Get to know the officers who have helped shape The Courtyard of Maia Alta through the years.
-    </p>
-  </div>
-
-  <!-- Modals -->
-  <div class="modal-container">
-    <section class="modal-section">
-      <div class="modal-box" onclick="showPopup(1)">2008 - 2010</div>
-      <div class="modal-box" onclick="showPopup(2)">2010 - 2012</div>
-      <div class="modal-box" onclick="showPopup(3)">2012 - 2014</div>
-      <div class="modal-box" onclick="showPopup(4)">2014 - 2019</div>
-      <div class="modal-box" onclick="showPopup(5)">2019 - 2021</div>
-      <div class="modal-box" onclick="showPopup(6)">2021 - 2023</div>
-      <div class="modal-box" onclick="showPopup(7)">2024 - Present</div>
-    </section>
-  </div>
-
-  <!-- Popup -->
-  <div class="overlay" id="overlay" onclick="closePopup(event)">
-    <div class="popup" id="popup" onclick="event.stopPropagation()">
-      <button class="close-btn" onclick="closePopup()">&times;</button>
-      <h3>Officers</h3>
-      <ul id="officerList"></ul>
-    </div>
-  </div>
-
-
-
- <!-- Event Section --> 
-<div class="event-section-wrapper">
-  <div class="event-section-header">
-    <h2>Upcoming Events!! See you there!</h2>
-  </div>
-
-  <div class="event-section">
-    <div class="photo-box">
-      <img id="eventImage" src="placeholder.jpg" alt="Event Photo" />
-      <div class="photo-controls">
-        <button class="edit-photo">Change Photo</button>
-        <button class="delete-photo">Delete Photo</button>
-      </div>
-      <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+  <!-- Two-column Section -->
+  <div class="dashboard-section">
+    <!-- Line Chart -->
+    <div class="chart-container">
+      <canvas id="lineChart" width="600" height="300"></canvas>
     </div>
 
-    <div class="description-box">
-      <textarea id="eventDescription" placeholder="Enter event description...">This is the current description.</textarea>
-      <button class="update-description">Update</button>
+   <!-- Dashboard Cards -->
+<div class="report-cards">
+  <div class="card blue">
+    <i class="zmdi zmdi-money"></i>
+    <div class="title">Total Collected</div>
+    <div class="value" id="totalCollected">$0</div>
+  </div>
+
+  <div class="card blue">
+    <i class="zmdi zmdi-balance"></i>
+    <div class="title">Total Unpaid</div>
+    <div class="value" id="totalUnpaid">$0</div>
+  </div>
+
+  <div class="card blue">
+    <i class="zmdi zmdi-check-circle"></i>
+    <div class="title">Paid Homeowners</div>
+    <div class="value" id="paidCount">0</div>
+  </div>
+
+  <div class="card blue">
+    <i class="zmdi zmdi-alert-circle"></i>
+    <div class="title">Unpaid Homeowners</div>
+    <div class="value" id="unpaidCount">0</div>
+  </div>
+
+  
+  <div class="card blue">
+    <i class="zmdi zmdi-download"></i>
+    <div class="title">Download</div>
+    <div class="value">
+      <button id="downloadBtn">Download as PDF</button>
     </div>
+
+
+
+  </div>
+      <!-- Pending Requests Card -->
+<div class="card blue" id="pendingCard" style="cursor: pointer;">
+  <i class="zmdi zmdi-time"></i>
+  <div class="title">Pending Requests</div>
+  <div class="value" id="pendingCount">0</div>
+</div>
+
+<!-- Modal -->
+<div id="pendingModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>This is where the pending requests are found.</p>
   </div>
 </div>
+</div>
+
+  </div>
 
 
   <div class="container">
-    <div class="column-container">
-      <div class="column">
-        <h2>About Us</h2>
-        <p>A community organization committed to enhancing the quality of life for residents of Maia Alta subdivision. We strive to maintain a harmonious living environment by upholding rules, promoting social interaction, and ensuring transparency and fairness in all community affairs. Our mission is to support the community in fostering unity, health, and well-being while safeguarding the community’s aesthetic and functional integrity.</p>
-      </div>
-      <div class="column">
-        <h2>Mission</h2>
-        <p>Effectively direct and administer the affairs of the Association in accordance with its overall charter. To provide information regarding laws, rules and regulations which govern the community and its members to ensure consistency.</p>
-      </div>
-      <div class="column">
-        <h2>Vision</h2>
-        <p>To create a vibrant and harmonious community where every resident enjoys a comfortable, safe, and beautiful environment. HACMAI envisions a well-organized neighborhood that encourages active participation, mutual respect, and sustained growth, ultimately making Maia Alta a model community of excellence and unity.</p>
-      </div>
-    </div>
+    <h2>Tenant Information</h2>
+    <p>Manage and review tenant details, billing, and status actions.</p>
   </div>
 
+  <div class="header-section">
+    <span class="homeowner-title">Homeowner's file</span>
+    <button class="add-button">Add</button>
+  </div>
 
+  <table id="tenantTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Tenant</th>
+        <th>Lot No.</th>
+        <th>Bill</th>
+        <th>Status<br>(paid/unpaid)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>Yes</td>
+        <td>A-123</td>
+        <td>$150</td>
+        <td>Paid</td>
+        <td class="action-buttons">
+          <div class="update-btn">Update</div>
+          <div class="archive-btn">Archive</div>
+        </td>
+      </tr>
+      <tr>    
+        <td>Jane Smith</td>
+        <td>No</td>
+        <td>B-456</td>
+        <td>$200</td>
+        <td>Unpaid</td>
+        <td class="action-buttons">
+          <div class="update-btn">Update</div>
+          <div class="archive-btn">Archive</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Bob Johnson</td>
+        <td>Yes</td>
+        <td>C-789</td>
+        <td>$175</td>
+        <td>Paid</td>
+        <td class="action-buttons">
+          <div class="update-btn">Update</div>
+          <div class="archive-btn">Archive</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Sarah Williams</td>
+        <td>No</td>
+        <td>D-012</td>
+        <td>$225</td>
+        <td>Unpaid</td>
+        <td class="action-buttons">
+          <div class="update-btn">Update</div>
+          <div class="archive-btn">Archive</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Mike Brown</td>
+        <td>Yes</td>
+        <td>E-345</td>
+        <td>$190</td>
+        <td>Paid</td>
+        <td class="action-buttons">
+          <div class="update-btn">Update</div>
+          <div class="archive-btn">Archive</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
-    // Updated data structure: array of objects with name and title
-    const officersData = {
-      1: [
-        { name: 'Cesar O. Villoria', title: 'President' },
-        { name: 'Ronnie Hernandez', title: 'Vice-President' },
-        { name: 'Marceliana Bermudez', title: 'Secretary' },
-        { name: 'Marilou Cajayon', title: 'Treasurer' },
-        { name: 'Mary Ann Neiva', title: 'Auditor' },
-        { name: 'Directors', title: 'Eduardo Quintos, Nelson Basa, Lourdes Paulino' }
-      ],
-      2: [
-        { name: 'Crenella Carvajal', title: 'President' },
-        { name: 'Shirley Sevilla', title: 'Vice-President' },
-        { name: 'Salve Oandasan', title: 'Secretary' },
-        { name: 'Angeli Balaguer', title: 'Treasurer' },
-        { name: 'Marceliana Bermudez', title: 'Auditor' },
-        { name: 'Directors', title: 'Francis Abujela, Rodrin, Editha Caronan' }
-      ],
-      3: [
-        { name: 'Teresita Balasabas', title: 'President' },
-        { name: 'Rhea Lepitin', title: 'Vice-President' },
-        { name: 'Agnes Ubas', title: 'Secretary' },
-        { name: 'Irene Pasamonte', title: 'Treasurer' },
-        { name: 'Marie Gilda Rodolfo', title: 'Auditor' },
-        { name: 'Directors', title: 'Nelson Basa, Arlene LIbar, Arellano Cruz' }
-      ],
-      4: [
-        { name: 'Martina Pantig', title: 'President' },
-        { name: 'Gina E. Stella', title: 'Vice-President' },
-        { name: 'Angeli O. Balaguer', title: 'Secretary' },
-        { name: 'Noemie V. Silayan', title: 'Treasurer' },
-        { name: 'Elvive S. Calope', title: 'Auditor' },
-        { name: 'Directors', title: 'Francis Abejuela, Liberty Jorge, Analiza Analiza' }
-      ],
-      5: [
-        { name: 'Elvie S. Caloper', title: 'President' },
-        { name: 'Darlyn Halili', title: 'Vice-President' },
-        { name: 'Gina E. Estella', title: 'Secretary' },
-        { name: 'Noemie V. Silayan', title: 'Treasurer' },
-        { name: 'Glaiza D. Bitang', title: 'Auditor' },
-        { name: 'Directors', title: 'Philip Arevalo, Francis Abejuela, Editha Caronan' }
-      ],
-      6: [
-        { name: 'Almario Nieva', title: 'President' },
-        { name: 'Ricardo Cena', title: 'Vice-President' },
-        { name: 'Twinkle Dessie Dalo', title: 'Secretary' },
-        { name: 'Teresita Balasabas', title: 'Treasurer' },
-        { name: 'Ronalyn Montalbo', title: 'Auditor' },
-        { name: 'Directors', title: 'Saint Gray Paulino, Liberty Jorge, Maryann Nieva' }
-      ],
-      7: [
-        { name: 'Saint Gray Paulino', title: 'President' },
-        { name: 'Arsenia Cena', title: 'Vice-President' },
-        { name: 'Editha Caronan', title: 'Secretary' },
-        { name: 'Teresita Balasabas', title: 'Treasurer' },
-        { name: 'Nelson Basa', title: 'Auditor' },
-        { name: 'Directors', title: 'Francis Abejuela, Philip Arevalo' }
-      ],
-    };
+    // Chart Data
+    const ctx = document.getElementById('lineChart').getContext('2d');
+    const months = ["January", "February", "March", "April", "May", "June"];
+    const billAmounts = [500, 700, 620, 550, 720, 680]; // Replace with real data if needed
 
-    const overlay = document.getElementById('overlay');
-    const officerList = document.getElementById('officerList');
-
-    function showPopup(modalNumber) {
-      officerList.innerHTML = '';
-      officersData[modalNumber].forEach(officer => {
-        const li = document.createElement('li');
-        li.style.textAlign = 'center';
-        li.style.marginBottom = '1rem';
-        li.innerHTML = `<div><strong>${officer.name}</strong></div><div><em>${officer.title}</em></div>`;
-        officerList.appendChild(li);
-      });
-      overlay.classList.add('active');
-    }
-
-    function closePopup(event) {
-      if (!event || event.target === overlay) {
-        overlay.classList.remove('active');
+    const lineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: months,
+        datasets: [{
+          label: 'Monthly Bills Collected ($)',
+          data: billAmounts,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
+    });
+
+    // Dummy Tenant Data
+    const tenants = [
+      { name: "John Doe", bill: 150, paid: true },
+      { name: "Jane Smith", bill: 200, paid: false },
+      { name: "Bob Johnson", bill: 175, paid: true },
+      { name: "Sarah Williams", bill: 225, paid: false },
+      { name: "Mike Brown", bill: 190, paid: true }
+    ];
+
+    let totalCollected = 0, totalUnpaid = 0, paidCount = 0, unpaidCount = 0;
+
+    tenants.forEach(t => {
+      if (t.paid) {
+        totalCollected += t.bill;
+        paidCount++;
+      } else {
+        totalUnpaid += t.bill;
+        unpaidCount++;
+      }
+    });
+
+
+      // Modal functionality
+  const modal = document.getElementById("pendingModal");
+  const btn = document.getElementById("pendingCard");
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  }
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
     }
-
-
-
-
-
-    
-
-
-// Open file selector
-document.querySelector('.edit-photo').onclick = () => {
-  document.getElementById('imageUpload').click();
-};
-
-// Preview uploaded photo
-document.getElementById('imageUpload').addEventListener('change', function () {
-  const file = this.files[0];
-  if (file) {
-    const img = document.getElementById('eventImage');
-    img.src = URL.createObjectURL(file);
   }
-});
 
-// Delete Photo
-document.querySelector('.delete-photo').onclick = () => {
-  if (confirm("Are you sure you want to delete the photo?")) {
-    document.getElementById('eventImage').src = "placeholder.jpg";
-  }
-};
 
-// Update Description
-document.querySelector('.update-description').onclick = () => {
-  const textarea = document.getElementById('eventDescription');
-  alert("Description updated:\n\n" + textarea.value);
-  // You can replace alert with a real save function if needed
-};
+    document.getElementById("totalCollected").innerText = totalCollected;
+    document.getElementById("totalUnpaid").innerText = totalUnpaid;
+    document.getElementById("paidCount").innerText = paidCount;
+    document.getElementById("unpaidCount").innerText = unpaidCount;
 
+    // PDF Download
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text("Monthly Report", 20, 20);
+
+      doc.setFontSize(12);
+      doc.text(`Total Collected: $${totalCollected}`, 20, 40);
+      doc.text(`Total Unpaid: $${totalUnpaid}`, 20, 50);
+      doc.text(`Paid Homeowners: ${paidCount}`, 20, 60);
+      doc.text(`Unpaid Homeowners: ${unpaidCount}`, 20, 70);
+
+      doc.save("monthly_report.pdf");
+    });
   </script>
 
-  </body>
-  </html>
-
-
+</body>
+</html>

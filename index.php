@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TestPage</title>
+    <title>Home Index</title>
 
     <link rel="stylesheet" href="Home.css" />
     <link rel="stylesheet" href="navbar.css" />
@@ -18,6 +18,8 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="Gallery.php">Gallery </a></li>
         <li><a href="News.php">News</a></li>
+        <li><a href="#about-container">About Us</a></li>
+        <li><a href="#officers-intro">History</a></li>
         <li><a href="Login.php" class="logout-btn">Login</a></li>
       </ul>
     </nav>
@@ -29,7 +31,7 @@
       </div>
     </div>
 
-<div class="officers-intro">
+<div class="officers-intro" id="officers-intro">
   <h2 class="officers-title">Meet the Officers</h2>
   <p class="officers-description">
     Behind every thriving community is a team of passionate individuals dedicated to its growth.
@@ -56,7 +58,10 @@
       <ul id="officerList"></ul>
     </div>
   </div>
-    <div class="container">
+
+
+
+    <div class="about-container" id="about-container">
       <div class="column-container">
         <div class="column">
           <h2>About Us</h2>

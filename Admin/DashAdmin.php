@@ -52,6 +52,46 @@
     #downloadBtn:hover {
       background-color: #005e26;
     }
+
+    /* Modal Base */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
   </style>
 </head>
 <body>
@@ -59,13 +99,13 @@
   <nav class="navbar">
     <div class="navbar-left">The Courtyard of Maia Alta</div>
     <ul class="navbar-right">
-      <li><a href="index.php">Home</a></li>
+      <li><a href="HomeAd.php">Home</a></li>
       <li><a href="DashAdmin.php">Admin</a></li>
       <li><a href="Gallery.php">Gallery</a></li>
       <li><a href="UserDash.php">SOA</a></li>
       <li><a href="Events.php">Events</a></li>
       <li><a href="News.php">News</a></li>
-      <li><a href="Login.php" class="logout-btn">Login</a></li>
+<li><a href="Login.php" class="logout-btn">Logout</a></li>
     </ul>
   </nav>
 
@@ -76,15 +116,59 @@
       <canvas id="lineChart" width="600" height="300"></canvas>
     </div>
 
-    <!-- Report Form -->
-    <div class="report-form">
-      <h3>Monthly Report</h3>
-      <p><strong>Total Collected:</strong> $<span id="totalCollected">0</span></p>
-      <p><strong>Total Unpaid:</strong> $<span id="totalUnpaid">0</span></p>
-      <p><strong>Paid Homeowners:</strong> <span id="paidCount">0</span></p>
-      <p><strong>Unpaid Homeowners:</strong> <span id="unpaidCount">0</span></p>
+   <!-- Dashboard Cards -->
+<div class="report-cards">
+  <div class="card blue">
+    <i class="zmdi zmdi-money"></i>
+    <div class="title">Total Collected</div>
+    <div class="value" id="totalCollected">$0</div>
+  </div>
+
+  <div class="card blue">
+    <i class="zmdi zmdi-balance"></i>
+    <div class="title">Total Unpaid</div>
+    <div class="value" id="totalUnpaid">$0</div>
+  </div>
+
+  <div class="card blue">
+    <i class="zmdi zmdi-check-circle"></i>
+    <div class="title">Paid Homeowners</div>
+    <div class="value" id="paidCount">0</div>
+  </div>
+
+  <div class="card blue">
+    <i class="zmdi zmdi-alert-circle"></i>
+    <div class="title">Unpaid Homeowners</div>
+    <div class="value" id="unpaidCount">0</div>
+  </div>
+
+  
+  <div class="card blue">
+    <i class="zmdi zmdi-download"></i>
+    <div class="title">Download</div>
+    <div class="value">
       <button id="downloadBtn">Download as PDF</button>
     </div>
+
+
+
+  </div>
+      <!-- Pending Requests Card -->
+<div class="card blue" id="pendingCard" style="cursor: pointer;">
+  <i class="zmdi zmdi-time"></i>
+  <div class="title">Pending Requests</div>
+  <div class="value" id="pendingCount">0</div>
+</div>
+
+<!-- Modal -->
+<div id="pendingModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>This is where the pending requests are found.</p>
+  </div>
+</div>
+</div>
+
   </div>
 
 
@@ -224,6 +308,27 @@
         unpaidCount++;
       }
     });
+
+
+      // Modal functionality
+  const modal = document.getElementById("pendingModal");
+  const btn = document.getElementById("pendingCard");
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  }
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+
 
     document.getElementById("totalCollected").innerText = totalCollected;
     document.getElementById("totalUnpaid").innerText = totalUnpaid;

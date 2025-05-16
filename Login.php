@@ -14,18 +14,7 @@
         <div id="bg1" class="bg-layer" style="background-image: url('daan.jpg'); opacity: 1;"></div>
         <div id="bg2" class="bg-layer" style="background-image: url('gate1.jpg'); opacity: 0;"></div>
     </div>
-	<nav class="navbar">
-  <div class="navbar-left">The Courtyard of Maia Alta</div>
-  <ul class="navbar-right">
-    <li><a href="index.php">Home</a></li>
-    <li><a href="DashAdmin.php">Admin</a></li>
-    <li><a href="Gallery.php">Gallery </a></li>
-    <li><a href="UserDash.php">SOA</a></li>
-    <li><a href="Events.php">Events</a></li>
-    <li><a href="News.php">News</a></li>
-    <li><a href="Login.php" class="logout-btn">Login</a></li>
-  </ul>
-</nav>
+
 <div class="center-wrapper">
 <h2>The Couryard of Maia Alta</h2>
 <div class="container" id="container">

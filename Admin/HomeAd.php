@@ -20,7 +20,7 @@
       <li><a href="Gallery.php">Gallery </a></li>
       <li><a href="News.php">News</a></li>
             <li><a href="DashAdmin.php">Admin</a></li>
-      <li><a href="Login.php" class="logout-btn">Login</a></li>
+      <li><a href="Login.php" class="logout-btn">Logout</a></li>
     </ul>
   </nav>
 
@@ -87,7 +87,7 @@
 </div>
 
 
-  <div class="container">
+    <div class="about-container" id="about-container">
     <div class="column-container">
       <div class="column">
         <h2>About Us</h2>

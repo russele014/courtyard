@@ -11,16 +11,15 @@
   
   </head>
 
-  <body>
-<>
+  <body>  
   <nav class="navbar">
     <div class="navbar-left">The Courtyard of Maia Alta</div>
     <ul class="navbar-right">
-      <li><a href="index.php">Home</a></li>
+    <li><a href="HomeUser.php">Home</a></li>
       <li><a href="Gallery.php">Gallery </a></li>
       <li><a href="News.php">News</a></li>
-            <li><a href="DashAdmin.php">Admin</a></li>
-      <li><a href="Login.php" class="logout-btn">Login</a></li>
+            <li><a href="UserDash.php">History</a></li>
+    <li><a href="Login.php" class="logout-btn">Logout</a></li>
     </ul>
   </nav>
 
@@ -63,25 +62,26 @@
 
 
 
-<!-- User Event Section -->
-<div class="user-event-section-wrapper">
-  <div class="user-event-section-header">
+<!-- Event Section (User View) --> 
+<div class="event-section-wrapper">
+  <div class="event-section-header">
     <h2>Upcoming Events!! See you there!</h2>
   </div>
 
-  <div class="user-event-section">
-    <div class="user-photo-box">
-      <img id="userEventImage" src="placeholder.jpg" alt="Event Photo" />
+  <div class="event-section user-view">
+    <div class="event-image">
+      <img src="event.jpg" alt="Event Photo" />
     </div>
 
-    <div class="user-description-box">
-      <p id="userEventDescription">This is the current event description. Stay tuned for updates!</p>
+    <div class="event-description">
+      <p>This is the current description.</p>
     </div>
   </div>
 </div>
 
 
-  <div class="container">
+
+    <div class="about-container" id="about-container">
     <div class="column-container">
       <div class="column">
         <h2>About Us</h2>
