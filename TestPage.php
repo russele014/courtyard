@@ -12,73 +12,97 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <div class="navbar-left">The Courtyard of Maia Alta</div>
-      <ul class="navbar-right">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="Gallery.php">Gallery </a></li>
-        <li><a href="News.php">News</a></li>
-        <li><a href="Login.php" class="logout-btn">Login</a></li>
-      </ul>
-    </nav>
+<>
+  <nav class="navbar">
+    <div class="navbar-left">The Courtyard of Maia Alta</div>
+    <ul class="navbar-right">
+      <li><a href="index.php">Home</a></li>
+      <li><a href="Gallery.php">Gallery </a></li>
+      <li><a href="News.php">News</a></li>
+      <li><a href="Login.php" class="logout-btn">Login</a></li>
+    </ul>
+  </nav>
 
-    <div class="text-title-con">
-      <p>A PLACE <br />YOU CAN CALL</p>
-      <div class="text-title-con-big">
-        <h1>HOME.</h1>
-      </div>
+  <div class="text-title-con">
+    <p>A PLACE <br />YOU CAN CALL</p>
+    <div class="text-title-con-big">
+      <h1>HOME.</h1>
     </div>
+  </div>
 
-<div class="officers-intro">
-  <h2 class="officers-title">Meet the Officers</h2>
-  <p class="officers-description">
-    Behind every thriving community is a team of passionate individuals dedicated to its growth.
-    Get to know the officers who have helped shape The Courtyard of Maia Alta through the years.
-  </p>
-</div>
-    <!-- Modals -->
-    <div class="modal-container">
-      <section class="modal-section">
-        <div class="modal-box" onclick="showPopup(1)">2008 - 2010</div>
-        <div class="modal-box" onclick="showPopup(2)">2010 - 2012</div>
-        <div class="modal-box" onclick="showPopup(3)">2012 - 2014</div>
-        <div class="modal-box" onclick="showPopup(4)">2014 - 2019</div>
-        <div class="modal-box" onclick="showPopup(5)">2019 - 2021</div>
-        <div class="modal-box" onclick="showPopup(6)">2021 - 2023</div>
-        <div class="modal-box" onclick="showPopup(7)">2024 - Present</div>
-      </section>
-    </div>
+  <div class="officers-intro">
+    <h2 class="officers-title">Meet the Officers</h2>
+    <p class="officers-description">
+      Behind every thriving community is a team of passionate individuals dedicated to its growth.
+      Get to know the officers who have helped shape The Courtyard of Maia Alta through the years.
+    </p>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-container">
+    <section class="modal-section">
+      <div class="modal-box" onclick="showPopup(1)">2008 - 2010</div>
+      <div class="modal-box" onclick="showPopup(2)">2010 - 2012</div>
+      <div class="modal-box" onclick="showPopup(3)">2012 - 2014</div>
+      <div class="modal-box" onclick="showPopup(4)">2014 - 2019</div>
+      <div class="modal-box" onclick="showPopup(5)">2019 - 2021</div>
+      <div class="modal-box" onclick="showPopup(6)">2021 - 2023</div>
+      <div class="modal-box" onclick="showPopup(7)">2024 - Present</div>
+    </section>
+  </div>
+
   <!-- Popup -->
   <div class="overlay" id="overlay" onclick="closePopup(event)">
     <div class="popup" id="popup" onclick="event.stopPropagation()">
-      <button class="close-btn" onclick="closePopup()">×</button>
+      <button class="close-btn" onclick="closePopup()">&times;</button>
       <h3>Officers</h3>
       <ul id="officerList"></ul>
     </div>
   </div>
-    <div class="container">
-      <div class="column-container">
-        <div class="column">
-          <h2>About Us</h2>
-          <p>
-a community organization committed to enhancing the quality of life for residents of Maia Alta subdivision. We strive to maintain a harmonious living environment by upholdings rules, promoting social interaction, and ensuring transparency and fairness in all community affairs. Our mission is to support the community in fostering unity, health, and well-being while safeguarding the community’s aesthetic and functional integrity.
-                </p>
-          </p>
-        </div>
-        <div class="column">
-          <h2>Mission</h2>
-          <p>
-                    Effectively dir ect and administer the affairs of the Association in accordance with overall charter. To provide information regarding laws, rules and regulations which govern the community and its members to ensure consistency and
-          </p>
-        </div>
-        <div class="column">
-          <h2>Vision</h2>
-          <p>
-                To create a vibrant and harmonious community where every resident enjoys a comfortable, safe, and beautiful environment. HACMAI envisions a well-organized neighborhood that encourages active participation, mutual respect, and sustained growth, ultimately making Maia Alta a model community of excellence and unity.
-          </p>
-        </div>
+
+
+
+ <!-- Event Section --> 
+<div class="event-section-wrapper">
+  <div class="event-section-header">
+    <h2>Upcoming Events!! See you there!</h2>
+  </div>
+
+  <div class="event-section">
+    <div class="photo-box">
+      <img id="eventImage" src="placeholder.jpg" alt="Event Photo" />
+      <div class="photo-controls">
+        <button class="edit-photo">Change Photo</button>
+        <button class="delete-photo">Delete Photo</button>
+      </div>
+      <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+    </div>
+
+    <div class="description-box">
+      <textarea id="eventDescription" placeholder="Enter event description...">This is the current description.</textarea>
+      <button class="update-description">Update</button>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="column-container">
+      <div class="column">
+        <h2>About Us</h2>
+        <p>A community organization committed to enhancing the quality of life for residents of Maia Alta subdivision. We strive to maintain a harmonious living environment by upholding rules, promoting social interaction, and ensuring transparency and fairness in all community affairs. Our mission is to support the community in fostering unity, health, and well-being while safeguarding the community’s aesthetic and functional integrity.</p>
+      </div>
+      <div class="column">
+        <h2>Mission</h2>
+        <p>Effectively direct and administer the affairs of the Association in accordance with its overall charter. To provide information regarding laws, rules and regulations which govern the community and its members to ensure consistency.</p>
+      </div>
+      <div class="column">
+        <h2>Vision</h2>
+        <p>To create a vibrant and harmonious community where every resident enjoys a comfortable, safe, and beautiful environment. HACMAI envisions a well-organized neighborhood that encourages active participation, mutual respect, and sustained growth, ultimately making Maia Alta a model community of excellence and unity.</p>
       </div>
     </div>
+  </div>
+
 
   <script>
     // Updated data structure: array of objects with name and title
@@ -161,6 +185,42 @@ a community organization committed to enhancing the quality of life for resident
         overlay.classList.remove('active');
       }
     }
+
+
+
+
+
+    
+
+
+// Open file selector
+document.querySelector('.edit-photo').onclick = () => {
+  document.getElementById('imageUpload').click();
+};
+
+// Preview uploaded photo
+document.getElementById('imageUpload').addEventListener('change', function () {
+  const file = this.files[0];
+  if (file) {
+    const img = document.getElementById('eventImage');
+    img.src = URL.createObjectURL(file);
+  }
+});
+
+// Delete Photo
+document.querySelector('.delete-photo').onclick = () => {
+  if (confirm("Are you sure you want to delete the photo?")) {
+    document.getElementById('eventImage').src = "placeholder.jpg";
+  }
+};
+
+// Update Description
+document.querySelector('.update-description').onclick = () => {
+  const textarea = document.getElementById('eventDescription');
+  alert("Description updated:\n\n" + textarea.value);
+  // You can replace alert with a real save function if needed
+};
+
   </script>
 
   </body>
