@@ -1,543 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Germain Gallery</title>
-  <link rel="stylesheet" href="TestCSS.css">
-</head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TestPage</title>
 
-<body>
-      <div class="container">
-      <div class="left">
-        <div class="calendar">
-          <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-            <div class="date">december 2015</div>
-            <i class="fas fa-angle-right next"></i>
-          </div>
-          <div class="weekdays">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-          </div>
-          <div class="days"></div>
-          <div class="goto-today">
-            <div class="goto">
-              <input type="text" placeholder="mm/yyyy" class="date-input" />
-              <button class="goto-btn">Go</button>
-            </div>
-            <button class="today-btn">Today</button>
-          </div>
-        </div>
+    <link rel="stylesheet" href="Home.css" />
+    <link rel="stylesheet" href="navbar.css" />
+
+  
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">The Courtyard of Maia Alta</div>
+      <ul class="navbar-right">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="Gallery.php">Gallery </a></li>
+        <li><a href="News.php">News</a></li>
+        <li><a href="Login.php" class="logout-btn">Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="text-title-con">
+      <p>A PLACE <br />YOU CAN CALL</p>
+      <div class="text-title-con-big">
+        <h1>HOME.</h1>
       </div>
-      <div class="right">
-        <div class="today-date">
-          <div class="event-day">wed</div>
-          <div class="event-date">12th december 2022</div>
-        </div>
-        <div class="events"></div>
-        <div class="add-event-wrapper">
-          <div class="add-event-header">
-            <div class="title">Add Event</div>
-            <i class="fas fa-times close"></i>
-          </div>
-          <div class="add-event-body">
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Name" class="event-name" />
-            </div>
-            <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Event Time From"
-                class="event-time-from"
-              />
-            </div>
-            <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Event Time To"
-                class="event-time-to"
-              />
-            </div>
-          </div>
-          <div class="add-event-footer">
-            <button class="add-event-btn">Add Event</button>
-          </div>
-        </div>
-      </div>
-      <button class="add-event">
-        <i class="fas fa-plus"></i>
-      </button>
     </div>
-   
-</body>
 
-<script>
+<div class="officers-intro">
+  <h2 class="officers-title">Meet the Officers</h2>
+  <p class="officers-description">
+    Behind every thriving community is a team of passionate individuals dedicated to its growth.
+    Get to know the officers who have helped shape The Courtyard of Maia Alta through the years.
+  </p>
+</div>
+    <!-- Modals -->
+    <div class="modal-container">
+      <section class="modal-section">
+        <div class="modal-box" onclick="showPopup(1)">2008 - 2010</div>
+        <div class="modal-box" onclick="showPopup(2)">2010 - 2012</div>
+        <div class="modal-box" onclick="showPopup(3)">2012 - 2014</div>
+        <div class="modal-box" onclick="showPopup(4)">2014 - 2019</div>
+        <div class="modal-box" onclick="showPopup(5)">2019 - 2021</div>
+        <div class="modal-box" onclick="showPopup(6)">2021 - 2023</div>
+        <div class="modal-box" onclick="showPopup(7)">2024 - Present</div>
+      </section>
+    </div>
+  <!-- Popup -->
+  <div class="overlay" id="overlay" onclick="closePopup(event)">
+    <div class="popup" id="popup" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <h3>Officers</h3>
+      <ul id="officerList"></ul>
+    </div>
+  </div>
+    <div class="container">
+      <div class="column-container">
+        <div class="column">
+          <h2>About Us</h2>
+          <p>
+a community organization committed to enhancing the quality of life for residents of Maia Alta subdivision. We strive to maintain a harmonious living environment by upholdings rules, promoting social interaction, and ensuring transparency and fairness in all community affairs. Our mission is to support the community in fostering unity, health, and well-being while safeguarding the community’s aesthetic and functional integrity.
+                </p>
+          </p>
+        </div>
+        <div class="column">
+          <h2>Mission</h2>
+          <p>
+                    Effectively dir ect and administer the affairs of the Association in accordance with overall charter. To provide information regarding laws, rules and regulations which govern the community and its members to ensure consistency and
+          </p>
+        </div>
+        <div class="column">
+          <h2>Vision</h2>
+          <p>
+                To create a vibrant and harmonious community where every resident enjoys a comfortable, safe, and beautiful environment. HACMAI envisions a well-organized neighborhood that encourages active participation, mutual respect, and sustained growth, ultimately making Maia Alta a model community of excellence and unity.
+          </p>
+        </div>
+      </div>
+    </div>
 
-  const calendar = document.querySelector(".calendar"),
-  date = document.querySelector(".date"),
-  daysContainer = document.querySelector(".days"),
-  prev = document.querySelector(".prev"),
-  next = document.querySelector(".next"),
-  todayBtn = document.querySelector(".today-btn"),
-  gotoBtn = document.querySelector(".goto-btn"),
-  dateInput = document.querySelector(".date-input"),
-  eventDay = document.querySelector(".event-day"),
-  eventDate = document.querySelector(".event-date"),
-  eventsContainer = document.querySelector(".events"),
-  addEventBtn = document.querySelector(".add-event"),
-  addEventWrapper = document.querySelector(".add-event-wrapper "),
-  addEventCloseBtn = document.querySelector(".close "),
-  addEventTitle = document.querySelector(".event-name "),
-  addEventFrom = document.querySelector(".event-time-from "),
-  addEventTo = document.querySelector(".event-time-to "),
-  addEventSubmit = document.querySelector(".add-event-btn ");
+  <script>
+    // Updated data structure: array of objects with name and title
+    const officersData = {
+      1: [
+        { name: 'Cesar O. Villoria', title: 'President' },
+        { name: 'Ronnie Hernandez', title: 'Vice-President' },
+        { name: 'Marceliana Bermudez', title: 'Secretary' },
+        { name: 'Marilou Cajayon', title: 'Treasurer' },
+        { name: 'Mary Ann Neiva', title: 'Auditor' },
+        { name: 'Directors', title: 'Eduardo Quintos, Nelson Basa, Lourdes Paulino' }
+      ],
+      2: [
+        { name: 'Crenella Carvajal', title: 'President' },
+        { name: 'Shirley Sevilla', title: 'Vice-President' },
+        { name: 'Salve Oandasan', title: 'Secretary' },
+        { name: 'Angeli Balaguer', title: 'Treasurer' },
+        { name: 'Marceliana Bermudez', title: 'Auditor' },
+        { name: 'Directors', title: 'Francis Abujela, Rodrin, Editha Caronan' }
+      ],
+      3: [
+        { name: 'Teresita Balasabas', title: 'President' },
+        { name: 'Rhea Lepitin', title: 'Vice-President' },
+        { name: 'Agnes Ubas', title: 'Secretary' },
+        { name: 'Irene Pasamonte', title: 'Treasurer' },
+        { name: 'Marie Gilda Rodolfo', title: 'Auditor' },
+        { name: 'Directors', title: 'Nelson Basa, Arlene LIbar, Arellano Cruz' }
+      ],
+      4: [
+        { name: 'Martina Pantig', title: 'President' },
+        { name: 'Gina E. Stella', title: 'Vice-President' },
+        { name: 'Angeli O. Balaguer', title: 'Secretary' },
+        { name: 'Noemie V. Silayan', title: 'Treasurer' },
+        { name: 'Elvive S. Calope', title: 'Auditor' },
+        { name: 'Directors', title: 'Francis Abejuela, Liberty Jorge, Analiza Analiza' }
+      ],
+      5: [
+        { name: 'Elvie S. Caloper', title: 'President' },
+        { name: 'Darlyn Halili', title: 'Vice-President' },
+        { name: 'Gina E. Estella', title: 'Secretary' },
+        { name: 'Noemie V. Silayan', title: 'Treasurer' },
+        { name: 'Glaiza D. Bitang', title: 'Auditor' },
+        { name: 'Directors', title: 'Philip Arevalo, Francis Abejuela, Editha Caronan' }
+      ],
+      6: [
+        { name: 'Almario Nieva', title: 'President' },
+        { name: 'Ricardo Cena', title: 'Vice-President' },
+        { name: 'Twinkle Dessie Dalo', title: 'Secretary' },
+        { name: 'Teresita Balasabas', title: 'Treasurer' },
+        { name: 'Ronalyn Montalbo', title: 'Auditor' },
+        { name: 'Directors', title: 'Saint Gray Paulino, Liberty Jorge, Maryann Nieva' }
+      ],
+      7: [
+        { name: 'Saint Gray Paulino', title: 'President' },
+        { name: 'Arsenia Cena', title: 'Vice-President' },
+        { name: 'Editha Caronan', title: 'Secretary' },
+        { name: 'Teresita Balasabas', title: 'Treasurer' },
+        { name: 'Nelson Basa', title: 'Auditor' },
+        { name: 'Directors', title: 'Francis Abejuela, Philip Arevalo' }
+      ],
+    };
 
-let today = new Date();
-let activeDay;
-let month = today.getMonth();
-let year = today.getFullYear();
+    const overlay = document.getElementById('overlay');
+    const officerList = document.getElementById('officerList');
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-// const eventsArr = [
-//   {
-//     day: 13,
-//     month: 11,
-//     year: 2022,
-//     events: [
-//       {
-//         title: "Event 1 lorem ipsun dolar sit genfa tersd dsad ",
-//         time: "10:00 AM",
-//       },
-//       {
-//         title: "Event 2",
-//         time: "11:00 AM",
-//       },
-//     ],
-//   },
-// ];
-
-const eventsArr = [];
-getEvents();
-console.log(eventsArr);
-
-//function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
-function initCalendar() {
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  const prevLastDay = new Date(year, month, 0);
-  const prevDays = prevLastDay.getDate();
-  const lastDate = lastDay.getDate();
-  const day = firstDay.getDay();
-  const nextDays = 7 - lastDay.getDay() - 1;
-
-  date.innerHTML = months[month] + " " + year;
-
-  let days = "";
-
-  for (let x = day; x > 0; x--) {
-    days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
-  }
-
-  for (let i = 1; i <= lastDate; i++) {
-    //check if event is present on that day
-    let event = false;
-    eventsArr.forEach((eventObj) => {
-      if (
-        eventObj.day === i &&
-        eventObj.month === month + 1 &&
-        eventObj.year === year
-      ) {
-        event = true;
-      }
-    });
-    if (
-      i === new Date().getDate() &&
-      year === new Date().getFullYear() &&
-      month === new Date().getMonth()
-    ) {
-      activeDay = i;
-      getActiveDay(i);
-      updateEvents(i);
-      if (event) {
-        days += `<div class="day today active event">${i}</div>`;
-      } else {
-        days += `<div class="day today active">${i}</div>`;
-      }
-    } else {
-      if (event) {
-        days += `<div class="day event">${i}</div>`;
-      } else {
-        days += `<div class="day ">${i}</div>`;
-      }
-    }
-  }
-
-  for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="day next-date">${j}</div>`;
-  }
-  daysContainer.innerHTML = days;
-  addListner();
-}
-
-//function to add month and year on prev and next button
-function prevMonth() {
-  month--;
-  if (month < 0) {
-    month = 11;
-    year--;
-  }
-  initCalendar();
-}
-
-function nextMonth() {
-  month++;
-  if (month > 11) {
-    month = 0;
-    year++;
-  }
-  initCalendar();
-}
-
-prev.addEventListener("click", prevMonth);
-next.addEventListener("click", nextMonth);
-
-initCalendar();
-
-//function to add active on day
-function addListner() {
-  const days = document.querySelectorAll(".day");
-  days.forEach((day) => {
-    day.addEventListener("click", (e) => {
-      getActiveDay(e.target.innerHTML);
-      updateEvents(Number(e.target.innerHTML));
-      activeDay = Number(e.target.innerHTML);
-      //remove active
-      days.forEach((day) => {
-        day.classList.remove("active");
+    function showPopup(modalNumber) {
+      officerList.innerHTML = '';
+      officersData[modalNumber].forEach(officer => {
+        const li = document.createElement('li');
+        li.style.textAlign = 'center';
+        li.style.marginBottom = '1rem';
+        li.innerHTML = `<div><strong>${officer.name}</strong></div><div><em>${officer.title}</em></div>`;
+        officerList.appendChild(li);
       });
-      //if clicked prev-date or next-date switch to that month
-      if (e.target.classList.contains("prev-date")) {
-        prevMonth();
-        //add active to clicked day afte month is change
-        setTimeout(() => {
-          //add active where no prev-date or next-date
-          const days = document.querySelectorAll(".day");
-          days.forEach((day) => {
-            if (
-              !day.classList.contains("prev-date") &&
-              day.innerHTML === e.target.innerHTML
-            ) {
-              day.classList.add("active");
-            }
-          });
-        }, 100);
-      } else if (e.target.classList.contains("next-date")) {
-        nextMonth();
-        //add active to clicked day afte month is changed
-        setTimeout(() => {
-          const days = document.querySelectorAll(".day");
-          days.forEach((day) => {
-            if (
-              !day.classList.contains("next-date") &&
-              day.innerHTML === e.target.innerHTML
-            ) {
-              day.classList.add("active");
-            }
-          });
-        }, 100);
-      } else {
-        e.target.classList.add("active");
+      overlay.classList.add('active');
+    }
+
+    function closePopup(event) {
+      if (!event || event.target === overlay) {
+        overlay.classList.remove('active');
       }
-    });
-  });
-}
-
-todayBtn.addEventListener("click", () => {
-  today = new Date();
-  month = today.getMonth();
-  year = today.getFullYear();
-  initCalendar();
-});
-
-dateInput.addEventListener("input", (e) => {
-  dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
-  if (dateInput.value.length === 2) {
-    dateInput.value += "/";
-  }
-  if (dateInput.value.length > 7) {
-    dateInput.value = dateInput.value.slice(0, 7);
-  }
-  if (e.inputType === "deleteContentBackward") {
-    if (dateInput.value.length === 3) {
-      dateInput.value = dateInput.value.slice(0, 2);
     }
-  }
-});
+  </script>
 
-gotoBtn.addEventListener("click", gotoDate);
-
-function gotoDate() {
-  console.log("here");
-  const dateArr = dateInput.value.split("/");
-  if (dateArr.length === 2) {
-    if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
-      month = dateArr[0] - 1;
-      year = dateArr[1];
-      initCalendar();
-      return;
-    }
-  }
-  alert("Invalid Date");
-}
-
-//function get active day day name and date and update eventday eventdate
-function getActiveDay(date) {
-  const day = new Date(year, month, date);
-  const dayName = day.toString().split(" ")[0];
-  eventDay.innerHTML = dayName;
-  eventDate.innerHTML = date + " " + months[month] + " " + year;
-}
-
-//function update events when a day is active
-function updateEvents(date) {
-  let events = "";
-  eventsArr.forEach((event) => {
-    if (
-      date === event.day &&
-      month + 1 === event.month &&
-      year === event.year
-    ) {
-      event.events.forEach((event) => {
-        events += `<div class="event">
-            <div class="title">
-              <i class="fas fa-circle"></i>
-              <h3 class="event-title">${event.title}</h3>
-            </div>
-            <div class="event-time">
-              <span class="event-time">${event.time}</span>
-            </div>
-        </div>`;
-      });
-    }
-  });
-  if (events === "") {
-    events = `<div class="no-event">
-            <h3>No Events</h3>
-        </div>`;
-  }
-  eventsContainer.innerHTML = events;
-  saveEvents();
-}
-
-//function to add event
-addEventBtn.addEventListener("click", () => {
-  addEventWrapper.classList.toggle("active");
-});
-
-addEventCloseBtn.addEventListener("click", () => {
-  addEventWrapper.classList.remove("active");
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target !== addEventBtn && !addEventWrapper.contains(e.target)) {
-    addEventWrapper.classList.remove("active");
-  }
-});
-
-//allow 50 chars in eventtitle
-addEventTitle.addEventListener("input", (e) => {
-  addEventTitle.value = addEventTitle.value.slice(0, 60);
-});
+  </body>
+  </html>
 
 
-defineProperty();
-
-//allow only time in eventtime from and to
-addEventFrom.addEventListener("input", (e) => {
-  addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
-  if (addEventFrom.value.length === 2) {
-    addEventFrom.value += ":";
-  }
-  if (addEventFrom.value.length > 5) {
-    addEventFrom.value = addEventFrom.value.slice(0, 5);
-  }
-});
-
-addEventTo.addEventListener("input", (e) => {
-  addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
-  if (addEventTo.value.length === 2) {
-    addEventTo.value += ":";
-  }
-  if (addEventTo.value.length > 5) {
-    addEventTo.value = addEventTo.value.slice(0, 5);
-  }
-});
-
-//function to add event to eventsArr
-addEventSubmit.addEventListener("click", () => {
-  const eventTitle = addEventTitle.value;
-  const eventTimeFrom = addEventFrom.value;
-  const eventTimeTo = addEventTo.value;
-  if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
-    alert("Please fill all the fields");
-    return;
-  }
-
-  //check correct time format 24 hour
-  const timeFromArr = eventTimeFrom.split(":");
-  const timeToArr = eventTimeTo.split(":");
-  if (
-    timeFromArr.length !== 2 ||
-    timeToArr.length !== 2 ||
-    timeFromArr[0] > 23 ||
-    timeFromArr[1] > 59 ||
-    timeToArr[0] > 23 ||
-    timeToArr[1] > 59
-  ) {
-    alert("Invalid Time Format");
-    return;
-  }
-
-  const timeFrom = convertTime(eventTimeFrom);
-  const timeTo = convertTime(eventTimeTo);
-
-  //check if event is already added
-  let eventExist = false;
-  eventsArr.forEach((event) => {
-    if (
-      event.day === activeDay &&
-      event.month === month + 1 &&
-      event.year === year
-    ) {
-      event.events.forEach((event) => {
-        if (event.title === eventTitle) {
-          eventExist = true;
-        }
-      });
-    }
-  });
-  if (eventExist) {
-    alert("Event already added");
-    return;
-  }
-  const newEvent = {
-    title: eventTitle,
-    time: timeFrom + " - " + timeTo,
-  };
-  console.log(newEvent);
-  console.log(activeDay);
-  let eventAdded = false;
-  if (eventsArr.length > 0) {
-    eventsArr.forEach((item) => {
-      if (
-        item.day === activeDay &&
-        item.month === month + 1 &&
-        item.year === year
-      ) {
-        item.events.push(newEvent);
-        eventAdded = true;
-      }
-    });
-  }
-
-  if (!eventAdded) {
-    eventsArr.push({
-      day: activeDay,
-      month: month + 1,
-      year: year,
-      events: [newEvent],
-    });
-  }
-
-  console.log(eventsArr);
-  addEventWrapper.classList.remove("active");
-  addEventTitle.value = "";
-  addEventFrom.value = "";
-  addEventTo.value = "";
-  updateEvents(activeDay);
-  //select active day and add event class if not added
-  const activeDayEl = document.querySelector(".day.active");
-  if (!activeDayEl.classList.contains("event")) {
-    activeDayEl.classList.add("event");
-  }
-});
-
-//function to delete event when clicked on event
-eventsContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("event")) {
-    if (confirm("Are you sure you want to delete this event?")) {
-      const eventTitle = e.target.children[0].children[1].innerHTML;
-      eventsArr.forEach((event) => {
-        if (
-          event.day === activeDay &&
-          event.month === month + 1 &&
-          event.year === year
-        ) {
-          event.events.forEach((item, index) => {
-            if (item.title === eventTitle) {
-              event.events.splice(index, 1);
-            }
-          });
-          //if no events left in a day then remove that day from eventsArr
-          if (event.events.length === 0) {
-            eventsArr.splice(eventsArr.indexOf(event), 1);
-            //remove event class from day
-            const activeDayEl = document.querySelector(".day.active");
-            if (activeDayEl.classList.contains("event")) {
-              activeDayEl.classList.remove("event");
-            }
-          }
-        }
-      });
-      updateEvents(activeDay);
-    }
-  }
-});
-
-//function to save events in local storage
-function saveEvents() {
-  localStorage.setItem("events", JSON.stringify(eventsArr));
-}
-
-//function to get events from local storage
-function getEvents() {
-  //check if events are already saved in local storage then return event else nothing
-  if (localStorage.getItem("events") === null) {
-    return;
-  }
-  eventsArr.push(...JSON.parse(localStorage.getItem("events")));
-}
-
-function convertTime(time) {
-  //convert time to 24 hour format
-  let timeArr = time.split(":");
-  let timeHour = timeArr[0];
-  let timeMin = timeArr[1];
-  let timeFormat = timeHour >= 12 ? "PM" : "AM";
-  timeHour = timeHour % 12 || 12;
-  time = timeHour + ":" + timeMin + " " + timeFormat;
-  return time;
-}
-
-</script>
-</html>

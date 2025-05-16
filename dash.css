@@ -122,3 +122,48 @@ tbody tr:hover {
 
 
 
+ .dashboard-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 30px auto;
+      gap: 30px;
+      max-width: 90%;
+      flex-wrap: wrap;
+    }
+
+    .chart-container {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .report-form {
+      flex: 1;
+      min-width: 280px;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .report-form h3 {
+      margin-bottom: 20px;
+    }
+
+    .report-form p {
+      margin: 10px 0;
+    }
+
+    #downloadBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007e33;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #downloadBtn:hover {
+      background-color: #005e26;
+    }

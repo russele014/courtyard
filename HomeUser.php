@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home USer</title>
 
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="navbar.css">
@@ -14,8 +14,8 @@
   <ul class="navbar-right">
     <li><a href="index.php">Home</a></li>
     <li><a href="Gallery.php">Gallery </a></li>
-    <li><a href="UserDash.php">SOA</a></li>
-    <li><a href="Events.php">Events</a></li>
+    <li><a href="UserDash.php">History of Payments</a></li>
+
     <li><a href="News.php">News</a></li>
     <li><a href="Login.php" class="logout-btn">Login</a></li>
   </ul>
