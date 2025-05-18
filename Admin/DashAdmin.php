@@ -102,7 +102,6 @@
       <li><a href="HomeAd.php">Home</a></li>
       <li><a href="DashAdmin.php">Admin</a></li>
       <li><a href="Gallery.php">Gallery</a></li>
-      <li><a href="UserDash.php">SOA</a></li>
       <li><a href="Events.php">Events</a></li>
       <li><a href="News.php">News</a></li>
 <li><a href="Login.php" class="logout-btn">Logout</a></li>
