@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Home User</title>
 
-    <link rel="stylesheet" href="Home.css" />
-    <link rel="stylesheet" href="navbar.css" />
-
+  <link rel="stylesheet" href="/courtyard/Home.css" />
+    <link rel="stylesheet" href="/courtyard/navbar.css" />
+    <style>
+      body {
+  margin: 0;
+  padding: 0;
+  background-image: url(' Home_bg.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; 
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+    </style>
   
   </head>
 

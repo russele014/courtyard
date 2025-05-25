@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Home Admin</title>
 
-    <link rel="stylesheet" href="Home.css" />
-    <link rel="stylesheet" href="navbar.css" />
-
-  
+    <link rel="stylesheet" href="/courtyard/Home.css" />
+    <link rel="stylesheet" href="/courtyard/navbar.css" />
+      <style>
+      body {
+  margin: 0;
+  padding: 0;
+  background-image: url(' Home_bg.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; 
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+    </style>
   </head>
-
   <body>
-<>
+
   <nav class="navbar">
-    <div class="navbar-left">The Courtyard of Maia Alta</div>
+    <div class="navbar-left">Courtyard of Maia Alta</div>
     <ul class="navbar-right">
       <li><a href="index.php">Home</a></li>
       <li><a href="Gallery.php">Gallery </a></li>
@@ -189,11 +199,9 @@
 
 
 
-
-
     
 
-
+    
 // Open file selector
 document.querySelector('.edit-photo').onclick = () => {
   document.getElementById('imageUpload').click();
