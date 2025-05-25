@@ -303,6 +303,26 @@
     .modal-content::-webkit-scrollbar-thumb:hover {
       background: #a8a8a8;
     }
+
+
+
+
+
+
+    
+    .logo {
+  width: 50px;
+  height: 50px;
+  position: fixed; /* Keeps the element fixed in the viewport */
+  bottom: 20px; /* Adjust the distance from the bottom */
+  right: 20px; /* Adjust the distance from the right */
+  z-index: 100; /* Ensures the logo stays on top of other content */
+}
+
+
+
+
+
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
@@ -328,6 +348,8 @@
       </div>
     </div>
   </div>
+
+   <img src="chat.png" alt="Your Logo" class="logo">
 
   <script>
     // Sample news data

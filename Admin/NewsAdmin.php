@@ -243,6 +243,23 @@
         width: 100%;
       }
     }
+
+
+
+    
+
+    .logo {
+  width: 50px;
+  height: 50px;
+  position: fixed; /* Keeps the element fixed in the viewport */
+  bottom: 20px; /* Adjust the distance from the bottom */
+  right: 20px; /* Adjust the distance from the right */
+  z-index: 100; /* Ensures the logo stays on top of other content */
+}
+
+
+
+
   </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen p-4">
@@ -346,6 +363,15 @@
       </div>
     </div>
   </div>
+
+
+
+   <img src="chat.png" alt="Your Logo" class="logo">
+
+
+
+
+
 
   <!-- JavaScript for modal functionality and post creation -->
   <script>

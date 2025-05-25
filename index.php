@@ -97,6 +97,8 @@ a community organization committed to enhancing the quality of life for resident
       </div>
     </div>
 
+    <img src="chat.png" alt="Your Logo" class="logo">
+
   <script>
     // Updated data structure: array of objects with name and title
     const officersData = {

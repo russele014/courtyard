@@ -109,7 +109,7 @@
       </div>
     </div>
   </div>
-
+ <img src="chat.png" alt="Your Logo" class="logo">
 
   <script>
     // Updated data structure: array of objects with name and title
