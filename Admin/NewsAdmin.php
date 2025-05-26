@@ -98,6 +98,7 @@
       border: none;
       box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
       background-color: #3b82f6; /* Tailwind blue-500 */
+      color: white; /* Ensure text is white */
     }
 
     #addNewsArticleButton:hover {
@@ -131,8 +132,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.4s ease;
       border: 1px solid rgba(0, 0, 0, 0.05);
-      cursor: pointer;
-      position: relative;
+      position: relative; /* Needed for positioning delete button */
     }
 
     .news-card:hover {
@@ -210,6 +210,32 @@
     .read-more-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    /* NEW: Delete Button on News Cards */
+    .delete-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(239, 68, 68, 0.8); /* Red with some transparency */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+      z-index: 10; /* Ensure it's above other elements */
+    }
+
+    .delete-btn:hover {
+      background: #ef4444; /* Solid red on hover */
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
     }
 
     /* Modal Article Content (for news modal) */
@@ -496,6 +522,8 @@
 
   <script>
     // News Articles Data (This array holds all the news content)
+    // IMPORTANT: In a real application, this data would be loaded from a backend database.
+    // Changes made here are only temporary and will reset on page refresh.
     let newsArticles = [ // Changed to `let` so we can modify it
       {
         id: 1,
@@ -607,8 +635,11 @@ The upgraded systems are monitored by professional security services with direct
       });
     });
 
-    // --- News Article Display Functions (Existing) ---
-    // Function to populate news cards on the dashboard
+    // --- News Article Display Functions ---
+    /**
+     * Populates the news grid with articles from the newsArticles array.
+     * Sorts articles by ID in descending order to show the latest first.
+     */
     function populateNews() {
       const newsContainer = document.getElementById('newsContainer');
       newsContainer.innerHTML = ''; // Clear existing news before populating
@@ -619,10 +650,11 @@ The upgraded systems are monitored by professional security services with direct
       sortedNews.forEach(article => {
         const newsCard = document.createElement('div');
         newsCard.className = 'news-card';
-        // When a news card is clicked, open the full article modal
-        newsCard.onclick = () => openNewsModal(article);
 
         newsCard.innerHTML = `
+          <button class="delete-btn" onclick="event.stopPropagation(); deleteNewsArticle(${article.id})">
+            <i class="fas fa-trash-alt"></i>
+          </button>
           <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=400&fit=crop'">
           <div class="news-card-content">
             <div class="news-meta">
@@ -631,7 +663,7 @@ The upgraded systems are monitored by professional security services with direct
             </div>
             <h3>${article.title}</h3>
             <p>${article.summary}</p>
-            <button class="read-more-btn">Read More <i class="fas fa-arrow-right ml-2"></i></button>
+            <button class="read-more-btn" onclick="openNewsModal(${article.id})">Read More <i class="fas fa-arrow-right ml-2"></i></button>
           </div>
         `;
         newsContainer.appendChild(newsCard);
@@ -640,9 +672,15 @@ The upgraded systems are monitored by professional security services with direct
 
     /**
      * Opens the news article modal and populates it with the given article data.
-     * @param {object} article The news article object containing title, content, etc.
+     * @param {number} articleId The ID of the news article to display.
      */
-    function openNewsModal(article) {
+    function openNewsModal(articleId) {
+      const article = newsArticles.find(a => a.id === articleId);
+      if (!article) {
+        console.error('Article not found:', articleId);
+        return;
+      }
+
       const modalArticleContent = document.getElementById('modalArticleContent');
       modalArticleContent.innerHTML = `
         <h1>${article.title}</h1>
@@ -658,7 +696,20 @@ The upgraded systems are monitored by professional security services with direct
       openModal('newsArticleModal');
     }
 
-    // --- Add News Article Form Functions (NEW) ---
+    /**
+     * Deletes a news article from the array and refreshes the display.
+     * @param {number} id The ID of the article to delete.
+     */
+    function deleteNewsArticle(id) {
+      if (confirm('Are you sure you want to delete this news article? This action cannot be undone.')) {
+        newsArticles = newsArticles.filter(article => article.id !== id);
+        populateNews(); // Re-render the articles
+        alert('News article deleted successfully!');
+      }
+    }
+
+
+    // --- Add News Article Form Functions ---
     /**
      * Opens the "Add News Article" form modal.
      */
@@ -672,6 +723,8 @@ The upgraded systems are monitored by professional security services with direct
      */
     function clearAddForm() {
       document.getElementById('newsArticleForm').reset(); // Resets all form fields
+      // For input type="date", .value = '' is safer than reset for consistency
+      document.getElementById('articleDate').value = '';
     }
 
     /**
@@ -696,6 +749,7 @@ The upgraded systems are monitored by professional security services with direct
       }
 
       // Generate a new unique ID (simple increment for demonstration)
+      // This ensures new IDs are higher than existing ones
       const newId = newsArticles.length > 0 ? Math.max(...newsArticles.map(a => a.id)) + 1 : 1;
 
       const newArticle = {
