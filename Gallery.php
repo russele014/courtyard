@@ -418,7 +418,7 @@
         <h3>5+</h3>
         <p>Annual Events</p>
       </div>
-      <div class="stat-item">
+      <div class="stat-item"> 
         <h3>7</h3>
         <p>Years of Service</p>
       </div>
