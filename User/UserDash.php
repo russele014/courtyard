@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOA Account History</title>
     <link rel="stylesheet" href="UserDash.css">
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="/courtyard/navbar.css" />
+
 
 </head>
 <body>

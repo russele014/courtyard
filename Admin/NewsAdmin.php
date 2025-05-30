@@ -421,6 +421,10 @@
         width: 100%;
       }
     }
+
+    .content {
+  padding-top: 80px; /* Add enough padding to clear the yellow header */
+}
   </style>
 </head>
 
@@ -429,14 +433,14 @@
     <div class="navbar-left">Courtyard of Maia Alta</div>
     <ul class="navbar-right">
       <li><a href="index.php">Home</a></li>
-      <li><a href="Gallery.php">Gallery </a></li>
+      <li><a href="Gallery.fphp">Gallery </a></li>
       <li><a href="News.php">News</a></li>
       <li><a href="#about-container">About Us</a></li>
       <li><a href="#officers-intro">History</a></li>
       <li><a href="Login.php" class="logout-btn">Login</a></li>
     </ul>
   </nav>
-
+<div class="content">
   <div class="text-center mb-8 w-full">
     <h1 class="text-4xl font-bold text-gray-800 mb-2">Admin Dashboard</h1>
     <p class="text-lg text-gray-600">Manage News Articles</p>
@@ -517,7 +521,7 @@
       </form>
     </div>
   </div>
-
+</div>
   <img src="chat.png" alt="Your Logo" class="logo">
 
   <script>
