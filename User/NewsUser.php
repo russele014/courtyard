@@ -6,7 +6,7 @@
   <title>News Portal - Latest Updates</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-        <link rel="stylesheet" href="/courtyard/navbar.css" />
+  <link rel="stylesheet" href="/courtyard/navbar.css"/>
   <style>
     /* Modal Overlay */
     .modal-overlay {
